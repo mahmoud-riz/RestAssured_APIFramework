@@ -6,9 +6,6 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-/**
- * Test listener for tracking test execution and failures
- */
 @Slf4j
 public class TestListener implements ITestListener {
     
