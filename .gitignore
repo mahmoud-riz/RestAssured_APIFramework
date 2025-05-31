@@ -1,0 +1,62 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### IntelliJ IDEA ###
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
+*.iws
+*.iml
+*.ipr
+
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
+
+### Automation Framework Specific ###
+# Log files
+logs/
+*.log
+
+# Test results and reports
+test-output/
+allure-results/
+allure-report/
+reports/
+screenshots/
+
+# Temporary files
+*.tmp
+*.temp
+
+# IDE specific
+.metadata/
+.recommenders/
+
+# Maven
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.properties
