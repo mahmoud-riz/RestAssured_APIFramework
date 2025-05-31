@@ -8,9 +8,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * User model class representing user data
- */
 @Data
 @Builder
 @NoArgsConstructor
@@ -46,9 +43,7 @@ public class User {
     @JsonProperty("updatedAt")
     private String updatedAt;
     
-    /**
-     * Create a user for creation request
-     */
+  
     public static User createUserForCreation(String name, String job) {
         return User.builder()
                 .name(name)
@@ -56,9 +51,7 @@ public class User {
                 .build();
     }
     
-    /**
-     * Create a user for update request
-     */
+    
     public static User createUserForUpdate(String name, String job) {
         return User.builder()
                 .name(name)
