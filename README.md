@@ -4,15 +4,15 @@ A comprehensive REST API automation framework built with **RestAssured**, **Test
 
 ## 🚀 Features
 
-- ✅ **RestAssured** for API testing with fluent interface
-- ✅ **TestNG** for test execution and reporting
-- ✅ **Maven** for dependency management
-- ✅ **POM Design Pattern** for maintainable test code
-- ✅ **Layered Architecture** (Test, Service, Model, Utility layers)
-- ✅ **Configuration Management** with externalized properties
-- ✅ **Allure Reporting** for detailed test reports
-- ✅ **Logging** with SLF4J and Logback
-- ✅ **Error Handling** and retry mechanisms
+- ✅ **RestAssured** 
+- ✅ **TestNG**
+- ✅ **Maven** 
+- ✅ **POM Design Pattern** 
+- ✅ **Layered Architecture**
+- ✅ **Configuration Management**
+- ✅ **Allure Reporting** 
+- ✅ **Logging** 
+- ✅ **Error Handling** 
 - ✅ **JSON Schema Validation**
 - ✅ **Parallel Test Execution**
 
@@ -204,62 +204,6 @@ mvn test -Dapi.base.url=https://staging-api.com -Drequest.timeout=60000
 - `RestAssuredConfigUtil.java` - RestAssured configuration
 - `RetryAnalyzer.java` - Test retry mechanism
 
-### **Test Layer**
-- `BaseTest.java` - Common test functionality
-- `UserAPITests.java` - Comprehensive user API tests
-
-## 🏃‍♂️ Parallel Execution
-
-Tests support parallel execution at class level:
-
-```xml
-<suite name="API Tests" parallel="classes" thread-count="3">
-    <!-- Test configuration -->
-</suite>
-```
-
-## 🔄 CI/CD Integration
-
-### GitHub Actions Example
-```yaml
-name: API Tests
-on: [push, pull_request]
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-java@v2
-        with:
-          java-version: '21'
-      - run: mvn clean test
-```
-
-### Jenkins Pipeline Example
-```groovy
-pipeline {
-    agent any
-    stages {
-        stage('Test') {
-            steps {
-                sh 'mvn clean test'
-            }
-        }
-        stage('Report') {
-            steps {
-                allure([
-                    includeProperties: false,
-                    jdk: '',
-                    properties: [],
-                    reportBuildPolicy: 'ALWAYS',
-                    results: [[path: 'target/allure-results']]
-                ])
-            }
-        }
-    }
-}
-```
-
 ## 🐛 Troubleshooting
 
 ### Common Issues
@@ -297,26 +241,3 @@ mvn test -X -Dlog.level=DEBUG
 6. **Test Data Management** - Dynamic test data generation
 7. **Reporting** - Rich Allure reports with steps
 8. **Maintainability** - Clean, readable code structure
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 📞 Support
-
-For questions or support, please:
-1. Check the troubleshooting section
-2. Review the logs in `logs/automation.log`
-3. Create an issue in the repository
-
----
-
-**Happy Testing! 🎉** 
