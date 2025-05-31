@@ -7,9 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * Model class for single user response
- */
+
 @Data
 @Builder
 @NoArgsConstructor

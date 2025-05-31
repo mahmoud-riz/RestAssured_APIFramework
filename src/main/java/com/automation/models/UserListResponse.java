@@ -9,9 +9,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-/**
- * Model class for user list response with pagination
- */
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -37,9 +35,7 @@ public class UserListResponse {
     @JsonProperty("support")
     private Support support;
     
-    /**
-     * Support information from the API response
-     */
+    
     @Data
     @Builder
     @NoArgsConstructor

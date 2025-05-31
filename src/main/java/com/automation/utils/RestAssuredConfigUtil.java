@@ -13,27 +13,22 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import lombok.extern.slf4j.Slf4j;
 
-/**
- * RestAssured configuration utility class
- */
+
 @Slf4j
 public class RestAssuredConfigUtil {
     private static final ConfigManager configManager = ConfigManager.getInstance();
     private static boolean isConfigured = false;
 
-    /**
-     * Configure RestAssured with common settings
-     */
     public static void configureRestAssured() {
         if (isConfigured) {
             return;
         }
 
-        // Set base URI
+
         RestAssured.baseURI = configManager.getBaseUrl();
         log.info("RestAssured base URI set to: {}", RestAssured.baseURI);
 
-        // Configure timeouts and other settings
+  
         RestAssured.config = RestAssuredConfig.config()
                 .httpClient(HttpClientConfig.httpClientConfig()
                         .setParam("http.connection.timeout", configManager.getConnectionTimeout())
@@ -43,16 +38,14 @@ public class RestAssuredConfigUtil {
                         .enableLoggingOfRequestAndResponseIfValidationFails(LogDetail.ALL)
                         .enablePrettyPrinting(true));
 
-        // Set default filters
+
         RestAssured.filters(new AllureRestAssured());
 
         isConfigured = true;
         log.info("RestAssured configuration completed successfully");
     }
 
-    /**
-     * Get common request specification
-     */
+  
     public static RequestSpecification getCommonRequestSpec() {
         return new RequestSpecBuilder()
                 .setContentType(ContentType.JSON)
@@ -64,9 +57,7 @@ public class RestAssuredConfigUtil {
                 .build();
     }
 
-    /**
-     * Get common response specification for successful responses
-     */
+
     public static ResponseSpecification getSuccessResponseSpec() {
         return new ResponseSpecBuilder()
                 .expectStatusCode(200)
@@ -75,9 +66,7 @@ public class RestAssuredConfigUtil {
                 .build();
     }
 
-    /**
-     * Get response specification for created resources
-     */
+
     public static ResponseSpecification getCreatedResponseSpec() {
         return new ResponseSpecBuilder()
                 .expectStatusCode(201)
@@ -86,9 +75,7 @@ public class RestAssuredConfigUtil {
                 .build();
     }
 
-    /**
-     * Get response specification for deleted resources
-     */
+
     public static ResponseSpecification getDeletedResponseSpec() {
         return new ResponseSpecBuilder()
                 .expectStatusCode(204)
@@ -96,9 +83,7 @@ public class RestAssuredConfigUtil {
                 .build();
     }
 
-    /**
-     * Get response specification for not found responses
-     */
+
     public static ResponseSpecification getNotFoundResponseSpec() {
         return new ResponseSpecBuilder()
                 .expectStatusCode(404)
@@ -106,9 +91,7 @@ public class RestAssuredConfigUtil {
                 .build();
     }
 
-    /**
-     * Get response specification for bad request responses
-     */
+
     public static ResponseSpecification getBadRequestResponseSpec() {
         return new ResponseSpecBuilder()
                 .expectStatusCode(400)
@@ -116,9 +99,7 @@ public class RestAssuredConfigUtil {
                 .build();
     }
 
-    /**
-     * Get response specification for unauthorized responses
-     */
+
     public static ResponseSpecification getUnauthorizedResponseSpec() {
         return new ResponseSpecBuilder()
                 .expectStatusCode(401)
@@ -126,9 +107,7 @@ public class RestAssuredConfigUtil {
                 .build();
     }
 
-    /**
-     * Reset RestAssured to default configuration
-     */
+   
     public static void resetRestAssured() {
         RestAssured.reset();
         isConfigured = false;

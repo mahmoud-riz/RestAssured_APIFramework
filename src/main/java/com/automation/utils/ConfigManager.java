@@ -6,9 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-/**
- * Configuration manager to handle loading and accessing configuration properties
- */
+
 @Slf4j
 public class ConfigManager {
     private static final String CONFIG_FILE = "config.properties";
@@ -19,9 +17,7 @@ public class ConfigManager {
         loadProperties();
     }
 
-    /**
-     * Get singleton instance of ConfigManager
-     */
+ 
     public static synchronized ConfigManager getInstance() {
         if (instance == null) {
             instance = new ConfigManager();
@@ -29,9 +25,7 @@ public class ConfigManager {
         return instance;
     }
 
-    /**
-     * Load properties from configuration file
-     */
+   
     private void loadProperties() {
         properties = new Properties();
         try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(CONFIG_FILE)) {
@@ -46,9 +40,7 @@ public class ConfigManager {
         }
     }
 
-    /**
-     * Get property value by key
-     */
+   
     public String getProperty(String key) {
         String value = System.getProperty(key);
         if (value == null) {
@@ -60,17 +52,12 @@ public class ConfigManager {
         return value;
     }
 
-    /**
-     * Get property value with default fallback
-     */
     public String getProperty(String key, String defaultValue) {
         String value = getProperty(key);
         return value != null ? value : defaultValue;
     }
 
-    /**
-     * Get integer property value
-     */
+
     public int getIntProperty(String key) {
         String value = getProperty(key);
         if (value == null) {
@@ -83,9 +70,7 @@ public class ConfigManager {
         }
     }
 
-    /**
-     * Get integer property value with default fallback
-     */
+ 
     public int getIntProperty(String key, int defaultValue) {
         try {
             return getIntProperty(key);
@@ -95,9 +80,7 @@ public class ConfigManager {
         }
     }
 
-    /**
-     * Get boolean property value
-     */
+
     public boolean getBooleanProperty(String key) {
         String value = getProperty(key);
         if (value == null) {
@@ -106,9 +89,7 @@ public class ConfigManager {
         return Boolean.parseBoolean(value);
     }
 
-    /**
-     * Get boolean property value with default fallback
-     */
+
     public boolean getBooleanProperty(String key, boolean defaultValue) {
         try {
             return getBooleanProperty(key);
@@ -118,7 +99,7 @@ public class ConfigManager {
         }
     }
 
-    // Convenience methods for commonly used properties
+
     public String getBaseUrl() {
         return getProperty("api.base.url");
     }
