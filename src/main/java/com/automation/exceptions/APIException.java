@@ -1,8 +1,6 @@
 package com.automation.exceptions;
 
-/**
- * Custom exception for API-related errors
- */
+
 public class APIException extends RuntimeException {
     
     private final int statusCode;
